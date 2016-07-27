@@ -5,6 +5,7 @@ using UnityEngine.VR;
 public class StoryStacker : MonoBehaviour
 {
     public GameObject storyBlockObject;
+	public Component storyLogic;
 
     void Start()
     {
@@ -17,11 +18,11 @@ public class StoryStacker : MonoBehaviour
             playAreaEdge = rect.vCorners2.v2 + 0.2f;
         }
 
-        StoriesModel storiesModel = new StoriesModel();
-        for (var i = 0; i < storiesModel.Stories.Count; i++)
+		var stories = ((StoryLogic)storyLogic).StoriesModel.Stories;
+        for (var i = 0; i < stories.Count; i++)
         {
             GameObject storyBlock = (GameObject)Instantiate(storyBlockObject, new Vector3(0, 0.50f + (i * 0.16f), playAreaEdge), Quaternion.identity);
-			storyBlock.GetComponent<StoryBlockView>().Display(storiesModel.Stories[i]);
+			storyBlock.GetComponent<StoryBlockView>().Display(stories[i]);
         }
     }
 }

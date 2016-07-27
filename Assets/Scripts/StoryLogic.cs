@@ -1,9 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class StoryLogic : MonoBehaviour
 {
-    public GameObject storyDetailsObject;
+	private StoriesModel storiesModel = new StoriesModel();
+
+	public GameObject storyDetailsObject;
+
+	public StoriesModel StoriesModel
+	{
+		get { return storiesModel; } 
+	}
 
     public void HoverIn(GameObject gameObject)
     {
@@ -24,6 +32,15 @@ public class StoryLogic : MonoBehaviour
             storyDetails.GetComponent<StoryDetailsView>().Display(block.storyModel);
         }
     }
+
+	public void Remove(GameObject gameObject) {
+		var block = gameObject.GetComponent<StoryBlockView>();
+		if (block != null) {
+			Debug.Log ("We gaan nu het block removen en uit het model halen");
+		} else {
+			throw new InvalidOperationException();
+		}
+	}
 
     private void SetSelected(GameObject gameObject, bool selected)
     {
