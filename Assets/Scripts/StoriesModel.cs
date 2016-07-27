@@ -8,6 +8,7 @@ public class StoriesModel
 
 	public StoriesModel ()
 	{
+		stories.Add (new StoryModel ("Full rewrite!!", "Throw everything out :)", 500));
 		stories.Add (new StoryModel ("As a customer I want to change my password", "Lorum ipsum bla", 5));
 		stories.Add (new StoryModel ("As a customer I want to add items to my shopping card", "Lorum ipsum bladiebla", 2));
 		stories.Add (new StoryModel ("As a customer I want to pay with iDeal", "Lorum ipsum dolor", 3));
@@ -53,6 +54,10 @@ public class StoriesModel
 		public string Title {
 			get { return title; }
 			set { title = value; }
+		}
+
+		public string TitleSummary {
+			get { return title.Length >= 35 ? title.Substring (0, 35) + "..." : title;  }
 		}
 
 		public string Description {
