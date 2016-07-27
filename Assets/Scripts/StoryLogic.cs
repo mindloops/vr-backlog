@@ -20,8 +20,10 @@ public class StoryLogic : MonoBehaviour
         var block = gameObject.GetComponent<StoryBlockView>();
         if (block != null)
         {
-            GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(1.0f, 1.0f, 1.0f), Quaternion.identity);
+            GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(1.5f, 1.0f, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
             storyDetails.GetComponent<StoryDetailsView>().Display(block.storyModel);
+            // z-axis is scaled, compensate
+            storyDetails.GetComponent<HingeJoint>().anchor = new Vector3(0.0f, 0.0f, -7.5f);
         }
     }
 
