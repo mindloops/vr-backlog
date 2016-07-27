@@ -21,7 +21,7 @@ public class StoryStacker : MonoBehaviour
         for (var i = 0; i < storiesModel.Stories.Count; i++)
         {
             GameObject storyBlock = (GameObject)Instantiate(storyBlockObject, new Vector3(0, 0.50f + (i * 0.16f), playAreaEdge), Quaternion.identity);
-			storyBlock.GetComponent<StoryBlockController>().SetTextValue(storiesModel.Stories[i].TitleSummary);
+			storyBlock.GetComponent<StoryBlockView>().Display(storiesModel.Stories[i]);
         }
     }
 }

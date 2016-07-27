@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PickupTrigger : MonoBehaviour
 {
-    public GameObject storyDetailsObject;
+    public StoryLogic storyLogic;
 
     private SteamVR_TrackedObject trackedObject;
 
@@ -14,12 +14,12 @@ public class PickupTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        GetController(other.gameObject).SetSelected(true);
+        storyLogic.HoverIn(other.gameObject);
     }
 
     void OnTriggerExit(Collider other)
-    {        
-        GetController(other.gameObject).SetSelected(false);
+    {
+        storyLogic.HoverOut(other.gameObject);
     }
 
     void OnTriggerStay(Collider other)
@@ -27,21 +27,7 @@ public class PickupTrigger : MonoBehaviour
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int) trackedObject.index);
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            StoriesModel model = new StoriesModel();
-            GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(1.0f, 1.0f, 1.0f), Quaternion.identity);
-            storyDetails.GetComponent<StoryDetailsOutput>().Display(model.Stories[0]);
-           // other.attachedRigidbody.isKinematic = true;
-           // other.gameObject.transform.SetParent(gameObject.transform);
+            storyLogic.Select(other.gameObject);
         }
-        /*if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
-        {
-            other.attachedRigidbody.isKinematic = false;
-            other.gameObject.transform.SetParent(null);
-        }*/
-    }
-
-    private StoryBlockController GetController(GameObject gameObject)
-    {
-        return gameObject.GetComponent<StoryBlockController>();
     }
 }

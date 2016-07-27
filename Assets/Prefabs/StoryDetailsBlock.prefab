@@ -93,6 +93,8 @@ GameObject:
   - 23: {fileID: 23000012773293230}
   - 114: {fileID: 114000013569159386}
   - 54: {fileID: 54000011546107838}
+  - 145: {fileID: 145000013681133220}
+  - 114: {fileID: 114000011341283178}
   m_Layer: 0
   m_Name: StoryDetailsBlock
   m_TagString: Untagged
@@ -163,7 +165,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &65000011770025840
 BoxCollider:
@@ -193,6 +195,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114000011341283178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014207610926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2380005a070e76c4fa4666633658f473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012186039178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,6 +337,26 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Story Points: 13'
+--- !u!145 &145000013681133220
+SpringJoint:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014207610926}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0.5, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Spring: 10
+  m_Damper: 0.2
+  m_MinDistance: 1
+  m_MaxDistance: 1
+  m_Tolerance: 0.025
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
 --- !u!222 &222000012003877020
 CanvasRenderer:
   m_ObjectHideFlags: 1

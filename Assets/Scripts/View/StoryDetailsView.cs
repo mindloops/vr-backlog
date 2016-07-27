@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 
-public class StoryDetailsOutput : MonoBehaviour
+public class StoryDetailsView : MonoBehaviour
 {
     public void Display(StoriesModel.StoryModel story)
     {
-        var textFields = this.gameObject.GetComponentsInChildren<Text>();
+        var textFields = gameObject.GetComponentsInChildren<Text>();
         foreach (var textField in textFields)
         {
             if (textField.name.Equals("StoryTitle"))
