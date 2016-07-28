@@ -5,7 +5,7 @@ public class BinTrigger : MonoBehaviour {
 
 	public StoryLogic storyLogic;
     
-	void OnTriggerEnter(Collider other)
+	void OnTriggerStay(Collider other)
 	{
         storyLogic.Remove(other.gameObject);
     }

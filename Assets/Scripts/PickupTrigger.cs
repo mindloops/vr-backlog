@@ -20,6 +20,7 @@ public class PickupTrigger : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         storyLogic.HoverOut(other.gameObject);
+        storyLogic.Unselect(other.gameObject);
     }
 
     void OnTriggerStay(Collider other)
