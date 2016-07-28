@@ -27,7 +27,11 @@ public class PickupTrigger : MonoBehaviour
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int) trackedObject.index);
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            storyLogic.Select(other.gameObject);
+            storyLogic.Select(other.gameObject, gameObject);
+        }
+        if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            storyLogic.Unselect(other.gameObject);
         }
     }
 }
