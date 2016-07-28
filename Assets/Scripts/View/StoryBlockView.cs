@@ -9,6 +9,6 @@ public class StoryBlockView : MonoBehaviour
     public void Display(StoriesModel.StoryModel storyModel)
     {
         this.storyModel = storyModel;
-        GetComponentInChildren<Text>().text = storyModel.Title;
+        GetComponentInChildren<Text>().text = storyModel.TitleSummary;
     }
 }
