@@ -33,6 +33,11 @@ public class StoriesModel
 		get { return stories; } 
 	}
 
+	public void RemoveStory(StoryModel story)
+	{
+		stories.Remove (story);
+	}
+
 	public class StoryModel
 	{
 		private Guid id;

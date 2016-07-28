@@ -11,4 +11,11 @@ public class StoryBlockView : MonoBehaviour
         this.storyModel = storyModel;
         GetComponentInChildren<Text>().text = storyModel.TitleSummary;
     }
+
+	public void SetRemoved()
+	{
+		var renderer = GetComponent<Renderer>();
+		var color = Color.black;
+		renderer.material.color = color;
+	}
 }

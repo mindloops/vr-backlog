@@ -30,7 +30,7 @@ public class StoryLogic : MonoBehaviour
         {
             var playAreaEdge = PlayArea.GetPlayAreaFrontOrDefault(1.8f) - 0.1f;
             GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(playAreaEdge, 1.0f, 0.0f), Quaternion.Euler(0.0f, -90.0f, 0.0f));
-            storyDetails.GetComponent<StoryDetailsView>().Display(block.storyModel);
+            storyDetails.GetComponent<StoryDetailsView>().Display(block);
         }
 
         var details = selectedObject.GetComponent<StoryDetailsView>();
@@ -61,7 +61,7 @@ public class StoryLogic : MonoBehaviour
             var detailsRigidBody = removeObject.GetComponent<Rigidbody>();
             if (!detailsRigidBody.isKinematic)
             {
-                Destroy(removeObject);
+                details.Remove();
             }
         }
         else
