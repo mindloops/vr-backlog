@@ -59,8 +59,11 @@ public class StoryLogic : MonoBehaviour
         var details = removeObject.GetComponent<StoryDetailsView>();
         if (details != null)
         {
-            removeObject.transform.SetParent(null);
-            Destroy(removeObject);
+            var detailsRigidBody = removeObject.GetComponent<Rigidbody>();
+            if (!detailsRigidBody.isKinematic)
+            {
+                Destroy(removeObject);
+            }
         }
         else
         {
