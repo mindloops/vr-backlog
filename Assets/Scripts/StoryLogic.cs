@@ -29,7 +29,7 @@ public class StoryLogic : MonoBehaviour
         if (block != null)
         {
             GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(1.5f, 1.0f, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
-            storyDetails.GetComponent<StoryDetailsView>().Display(block.storyModel);
+			storyDetails.GetComponent<StoryDetailsView>().Display(block);
 
             // storyDetails.GetComponent<HingeJoint>().anchor = new Vector3(0.0f, 0.0f, -7.5f);
         }
@@ -59,8 +59,7 @@ public class StoryLogic : MonoBehaviour
         var details = removeObject.GetComponent<StoryDetailsView>();
         if (details != null)
         {
-            removeObject.transform.SetParent(null);
-            Destroy(removeObject);
+			details.Remove ();
         }
         else
         {
