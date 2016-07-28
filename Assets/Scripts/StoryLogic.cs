@@ -38,9 +38,11 @@ public class StoryLogic : MonoBehaviour
 	public void Remove(GameObject gameObject) {
 		var block = gameObject.GetComponent<StoryBlockView>();
 		if (block != null) {
-			Debug.Log ("We gaan nu het block removen en uit het model halen");
+			Debug.Log ("Remove storyblock and display as removed in storystack");
+			storiesModel.RemoveStory (block.storyModel);
+			block.SetRemoved ();
 		} else {
-			throw new InvalidOperationException();
+			throw new InvalidOperationException("StoryBlock not found");
 		}
 	}
 
