@@ -28,10 +28,9 @@ public class StoryLogic : MonoBehaviour
         var block = selectedObject.GetComponent<StoryBlockView>();
         if (block != null)
         {
-            GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(1.5f, 1.0f, 0.0f), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+            var playAreaEdge = PlayArea.GetPlayAreaFrontOrDefault(1.8f) - 0.1f;
+            GameObject storyDetails = (GameObject)Instantiate(storyDetailsObject, new Vector3(playAreaEdge, 1.0f, 0.0f), Quaternion.Euler(0.0f, -90.0f, 0.0f));
             storyDetails.GetComponent<StoryDetailsView>().Display(block.storyModel);
-
-            // storyDetails.GetComponent<HingeJoint>().anchor = new Vector3(0.0f, 0.0f, -7.5f);
         }
 
         var details = selectedObject.GetComponent<StoryDetailsView>();
