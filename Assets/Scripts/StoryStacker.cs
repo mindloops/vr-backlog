@@ -9,7 +9,7 @@ public class StoryStacker : MonoBehaviour
 
     void Start()
     {		
-        var playAreaEdge = PlayArea.GetPlayAreaRightOrDefault(1.8f) + 0.2f;        
+        var playAreaEdge = PlayArea.GetPlayAreaRightOrDefault(1.8f);        
         var stories = storyLogic.StoriesModel.Stories;
         for (var i = 0; i < stories.Count; i++)
         {
