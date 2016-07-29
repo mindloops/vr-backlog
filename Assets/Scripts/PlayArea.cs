@@ -26,7 +26,13 @@ public class PlayArea {
     }
 
 	static HmdQuad_t GetPlayAreaRect()
-    {        
+    {
+        var initOpenVR = (!SteamVR.active && !SteamVR.usingNativeSupport);
+        if (initOpenVR)
+        {
+            var error = EVRInitError.None;
+            OpenVR.Init(ref error, EVRApplicationType.VRApplication_Other);
+        }
         var chaperone = OpenVR.Chaperone;
         var rect = new HmdQuad_t();
         bool success = (chaperone != null) && chaperone.GetPlayAreaRect(ref rect);
@@ -34,6 +40,7 @@ public class PlayArea {
         {
             return rect;
         }
+        Debug.Log("Rect: " + rect.vCorners0.v0 + ", " + rect.vCorners0.v2);
         throw new InvalidOperationException();
     }
 }
