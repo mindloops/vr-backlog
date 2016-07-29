@@ -4,13 +4,21 @@ using System;
 
 public class StoryLogic : MonoBehaviour
 {
-    private StoriesModel storiesModel = new StoriesModel();
+    private StoriesModel storiesModel;
 
     public GameObject storyDetailsObject;
 
+    public TextAsset issueListText;
+
     public StoriesModel StoriesModel
     {
-        get { return storiesModel; }
+        get {
+            if (storiesModel == null)
+            {
+                storiesModel = new StoriesModel(issueListText.text);
+            }
+            return storiesModel;
+        }
     }
 
     public void HoverIn(GameObject gameObject)
@@ -53,6 +61,17 @@ public class StoryLogic : MonoBehaviour
         }
     }
 
+    public void ApplyForce(GameObject forcedObject, Vector3 velocity, Vector3 angularVelocity)
+    {
+        if (velocity.magnitude > 1.0f)
+        {
+            var forcedRigidbody = forcedObject.GetComponent<Rigidbody>();
+            forcedRigidbody.velocity = velocity;
+            forcedRigidbody.angularVelocity = angularVelocity;
+            Debug.Log("Velocity Applied: " + velocity.magnitude);
+        }
+    }
+
     public void Remove(GameObject removeObject)
     {
         var details = removeObject.GetComponent<StoryDetailsView>();
@@ -63,10 +82,6 @@ public class StoryLogic : MonoBehaviour
             {
                 details.Remove();
             }
-        }
-        else
-        {
-            throw new InvalidOperationException();
         }
     }
 

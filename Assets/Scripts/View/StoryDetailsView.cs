@@ -5,22 +5,20 @@ using System;
 
 public class StoryDetailsView : MonoBehaviour
 {
-	private StoryBlockView storyBlock;
+    private StoryBlockView storyBlock;
 
-	public void Remove() 
-	{
-		gameObject.transform.SetParent(null);
-		Destroy (gameObject);
-		Debug.Log ("Remove");
-		storyBlock.SetRemoved ();
-	}
-		
-	public void Display(StoryBlockView storyBlock)
+    public void Remove()
     {
-		Debug.Log ("StoryBlockView");
-		this.storyBlock = storyBlock;
-		var story = storyBlock.storyModel;
-		foreach (var textField in gameObject.GetComponentsInChildren<Text>())
+        gameObject.transform.SetParent(null);
+        Destroy(gameObject);
+        storyBlock.SetRemoved();
+    }
+
+    public void Display(StoryBlockView storyBlock)
+    {
+        this.storyBlock = storyBlock;
+        var story = storyBlock.storyModel;
+        foreach (var textField in gameObject.GetComponentsInChildren<Text>())
         {
             if (textField.name.Equals("StoryTitle"))
             {

@@ -8,5 +8,11 @@ public class SelectableView : MonoBehaviour
         var renderer = GetComponent<Renderer>();
         var color = selected ? Color.blue : Color.white;
         renderer.material.color = color;
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+        {
+            Debug.Log("Playing animation");
+            anim.Play("Press");
+        }
     }
 }

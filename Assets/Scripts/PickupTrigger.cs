@@ -25,7 +25,7 @@ public class PickupTrigger : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        SteamVR_Controller.Device device = SteamVR_Controller.Input((int) trackedObject.index);
+        SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackedObject.index);
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
         {
             storyLogic.Select(other.gameObject, gameObject);
@@ -33,6 +33,11 @@ public class PickupTrigger : MonoBehaviour
         if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
         {
             storyLogic.Unselect(other.gameObject);
+            Transform origin = trackedObject.origin ? trackedObject.origin : trackedObject.transform.parent;
+            if (origin != null)
+            {
+                storyLogic.ApplyForce(other.gameObject, origin.TransformVector(device.velocity), origin.TransformVector(device.angularVelocity));
+            }
         }
     }
 }

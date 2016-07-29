@@ -90,7 +90,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &252490616
+--- !u!43 &160553835
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -218,7 +218,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!21 &404828093
+--- !u!21 &537070599
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyDetailsObject: {fileID: 1000014207610926, guid: 7e7377d0faa794ccb9c268d0511e5ca9,
     type: 2}
+  issueListText: {fileID: 4900000, guid: 6c9bac71e22d09a459daa338aaddede2, type: 3}
 --- !u!114 &639833965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +368,7 @@ Prefab:
     - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 252490616}
+      objectReference: {fileID: 160553835}
     - target: {fileID: 146900, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -443,7 +444,7 @@ Prefab:
     - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 404828093}
+      objectReference: {fileID: 537070599}
     m_RemovedComponents:
     - {fileID: 11420968, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
