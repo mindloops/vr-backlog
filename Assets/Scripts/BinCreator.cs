@@ -20,7 +20,7 @@ public class BinCreator : MonoBehaviour {
 			playAreaEdge = rect.vCorners2.v2 - 0.7f;
 		}
 
-		var gameObject = (GameObject) Instantiate(bin, new Vector3(-0.6f, 0.0f, playAreaEdge), Quaternion.identity);
+		var gameObject = (GameObject) Instantiate(bin, new Vector3(-0.6f, 0.0f, playAreaEdge), Quaternion.Euler(new Vector3(270, 50, 90)));
         gameObject.GetComponent<BinTrigger>().storyLogic = storyLogic;
     }
 
